@@ -42,6 +42,7 @@ function createLinkedList(arr) {
 const l1 = createLinkedList([2, 4, 3]);
 const l2 = createLinkedList([5, 6, 4]);
 
+// ######### Solution ######### //
 function addTwoNumbers(l1, l2) {
   let overflow = 0; // if sum is more than 10 - there is an overflow of 1. the overflow cannot be greater than 1 because the highest sum can be 19 (9 + 9 + 1 overflow).
   l3 = new ListNode(undefined, undefined);
