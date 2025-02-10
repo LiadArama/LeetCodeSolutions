@@ -45,12 +45,12 @@ const l2 = createLinkedList([5, 6, 4]);
 // ######### Solution ######### //
 function addTwoNumbers(l1, l2) {
   let overflow = 0; // if sum is more than 10 - there is an overflow of 1. the overflow cannot be greater than 1 because the highest sum can be 19 (9 + 9 + 1 overflow).
-  l3 = new ListNode(undefined, undefined);
-  l3Head = l3;
+  let l3 = new ListNode(0);
+  let l3Head = l3;
   let sum = 0;
   while (l1 !== null || l2 !== null || overflow !== 0) {
     // we need to check if there is an overflow
-    sum = overflow + (l1.val !== null ? l1.val : 0) + (l2.val !== null ? l2.val : 0); // In case of a sum nore than 10 it will be calculated in the next iteration
+    sum = overflow + (l1 !== null ? l1.val : 0) + (l2 !== null ? l2.val : 0); // In case of a sum nore than 10 it will be calculated in the next iteration
     overflow = parseInt(sum / 10);
     l3.next = new ListNode(sum % 10);
     l3 = l3.next;
@@ -58,7 +58,7 @@ function addTwoNumbers(l1, l2) {
     if (l1 !== null) l1 = l1.next; // if l1 is a longer list than l2.
     if (l2 !== null) l2 = l2.next; // if l2 is a longer list than l1.
   }
-  return l3Head;
+  return l3Head.next;
 }
 
 addTwoNumbersFixed(l1, l2);
