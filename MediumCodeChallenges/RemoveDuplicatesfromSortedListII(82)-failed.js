@@ -30,7 +30,7 @@ function createLinkedList(arr) {
   }
   return dummy.next; // Return the actual head (skip the dummy)
 }
-
+/*
 var deleteDuplicates = function (head) {
   if (!head || !head.next) return head;
   let startPtr = head;
@@ -61,15 +61,32 @@ var deleteDuplicates = function (head) {
   if (!startPtr.next && !endPtr.next) head = null;
   return head;
 };
+*/
+
+// ################################### Solution ###################################
+var deleteDuplicates = function (head) {
+  if (head === null) {
+    return head;
+  }
+
+  let dummy = new ListNode(0);
+  dummy.next = head;
+  let prev = dummy;
+  let current = head;
+
+  while (current !== null) {
+    while (current.next !== null && current.val === current.next.val) {
+      current = current.next;
+    }
+    if (prev.next === current) {
+      prev = prev.next;
+    } else {
+      prev.next = current.next;
+    }
+    current = current.next;
+  }
+
+  return dummy.next;
+};
 
 deleteDuplicates(createLinkedList([1, 2, 2]));
-/*
-[1,2,3,3,4,4,5]
-startPtr
-endPtr = startPtr
-start -> 1
-midPtr, endPtr -> 3
-while(endPtr && midPtr)
-// move endPtr by one
-// delete midPtr
-*/
