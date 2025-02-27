@@ -61,4 +61,4 @@ function addTwoNumbers(l1, l2) {
   return l3Head.next;
 }
 
-addTwoNumbersFixed(l1, l2);
+addTwoNumbers(l1, l2);
