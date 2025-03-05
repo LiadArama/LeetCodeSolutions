@@ -21,7 +21,7 @@ var longestPalindrome = function (s) {
   function getPalindromeAtIndexes(left, right, s) {
     // outwards checking.
     while (left >= 0 && right < s.length) {
-      // base case wjere we go out of bounds.
+      // base case where we go out of bounds.
       if (s[left] !== s[right]) break; // stop looping if we are not in a palindrome.
       left--;
       right++;
